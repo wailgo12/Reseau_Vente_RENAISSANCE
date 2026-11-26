@@ -1,0 +1,335 @@
+/* =========================================================
+   AXXAM PROMO - Résidence RENAISSANCE (Sidi Aïch)
+   Charte graphique : Rouge (#E3000F), Noir (#111111), Blanc (#FFFFFF)
+   ========================================================= */
+
+:root {
+    --primary-red: #E3000F;
+    --primary-red-dark: #B8000C;
+    --dark-bg: #111111;
+    --dark-surface: #1A1A1A;
+    --text-dark: #1E1E1E;
+    --text-muted: #555555;
+    --light-bg: #F6F6F6;
+    --white: #FFFFFF;
+    --border-color: #E0E0E0;
+    --radius: 8px;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    background: linear-gradient(135deg, #0D0D0D 0%, #1F1F1F 60%, #2C0508 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 60px 0 70px;
+    border-bottom: 5px solid var(--primary-red);
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(227, 0, 15, 0.18), transparent 60%);
+    z-index: 1;
+}
+
+.hero .logo {
+    max-width: 210px;
+    height: auto;
+    background: var(--white);
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    margin-bottom: 24px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+    letter-spacing: -0.3px;
+}
+
+.hero .slogan {
+    font-size: 1.15rem;
+    color: #E0E0E0;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* --- Presentation Section --- */
+.presentation {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.content-box {
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.content-box h2 {
+    font-size: 1.75rem;
+    color: var(--dark-bg);
+    margin-bottom: 16px;
+    border-left: 5px solid var(--primary-red);
+    padding-left: 14px;
+}
+
+.content-box p {
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-size: 1.02rem;
+}
+
+.red-title {
+    color: var(--primary-red);
+    font-size: 1.3rem;
+    margin-top: 28px;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+/* --- Products Grid --- */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.product-card {
+    background: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+.product-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+}
+
+.product-card h4 {
+    font-size: 1.08rem;
+    color: var(--dark-bg);
+    margin: 14px 12px 6px;
+}
+
+.product-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 0 12px 16px;
+}
+
+/* --- Form Section --- */
+.form-section {
+    margin-bottom: 60px;
+}
+
+.form-container {
+    background: var(--white);
+    padding: 42px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-top: 5px solid var(--dark-bg);
+}
+
+.form-container h2 {
+    font-size: 1.7rem;
+    color: var(--dark-bg);
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group.half {
+    flex: 1;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: var(--dark-bg);
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #FAFAFA;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    background-color: var(--white);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    accent-color: var(--primary-red);
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    font-weight: 400;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--primary-red);
+    color: var(--white);
+    border: none;
+    padding: 16px 24px;
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+    margin-top: 10px;
+}
+
+.btn-submit:hover:not(:disabled) {
+    background-color: var(--primary-red-dark);
+    transform: translateY(-1px);
+}
+
+.btn-submit:disabled {
+    background-color: #888888;
+    cursor: not-allowed;
+}
+
+/* --- Messages --- */
+.success-message {
+    background-color: #E8F8F0;
+    border: 1.5px solid #22A06B;
+    color: #145A32;
+    padding: 24px;
+    border-radius: var(--radius);
+    text-align: center;
+    margin-top: 15px;
+}
+
+.success-message h3 {
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+}
+
+.error-message {
+    background-color: #FDEDEC;
+    border: 1.5px solid var(--primary-red);
+    color: #922B21;
+    padding: 16px;
+    border-radius: var(--radius);
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--dark-bg);
+    color: #CCCCCC;
+    text-align: center;
+    padding: 32px 20px;
+    font-size: 0.92rem;
+    border-top: 4px solid var(--primary-red);
+}
+
+footer p {
+    margin-bottom: 6px;
+}
+
+footer strong {
+    color: var(--white);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 1.65rem;
+    }
+
+    .content-box,
+    .form-container {
+        padding: 24px 20px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réseau de Vente - Résidence RENAISSANCE | AXXAM PROMO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- En-tête / Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <img src="Logo AXXAM PROMO rouge et noir.png" alt="AXXAM PROMO Logo" class="logo">
+            <h1>Rejoignez le réseau de vente de la Résidence RENAISSANCE</h1>
+            <p class="slogan">Participez à la commercialisation de notre projet immobilier à Sidi Aïch.</p>
+        </div>
+    </header>
+
+    <!-- Section Présentation -->
+    <section class="presentation container">
+        <div class="content-box">
+            <h2>Invitation aux Agences Immobilières Agréées</h2>
+            <p>La SARL <strong>AXXAM PROMO</strong> constitue un réseau de vente dédié exclusivement à la commercialisation de la <strong>Résidence RENAISSANCE</strong>.</p>
+            
+            <h3 class="red-title">Le Projet RENAISSANCE</h3>
+            <p>Située au cœur de Sidi Aïch (wilaya de Béjaïa), cette résidence de 198 logements bénéficie d'un emplacement stratégique, à proximité immédiate du marché communal.</p>
+            
+            <h3 class="red-title">Produits à Commercialiser :</h3>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="796726225_1533727492104182_7206264882911470212_n.jpg" alt="Appartements F2 à F5">
+                    <h4>Appartements Promotionnels</h4>
+                    <p>Du F2 au F5.</p>
+                </div>
+                <div class="product-card">
+                    <img src="796832399_1533727615437503_3022405402475241915_n.jpg" alt="Locaux Commerciaux et Services">
+                    <h4>Locaux Commerciaux & Services</h4>
+                    <p>Emplacements de choix.</p>
+                </div>
+                <div class="product-card">
+                    <img src="815734622_1533727682104163_8891972954330648690_n.jpg" alt="Places de parking">
+                    <h4>Places de Parking</h4>
+                    <p>Parking sécurisé.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <img src="799308542_1533727545437510_2881146035288202270_n.jpg" alt="Visitez notre logement témoin" style="max-width: 100%; border-radius: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Formulaire -->
+    <section class="form-section container">
+        <div class="form-container">
+            <h2>Soumettre votre candidature au réseau RENAISSANCE</h2>
+            <p style="margin-bottom: 25px; color: #555;">Remplissez ce formulaire pour être contacté par notre service commercial concernant la commercialisation exclusive de la Résidence RENAISSANCE.</p>
+            
+            <form id="partenaireForm">
+                <!-- Champs cachés pour tracker l'origine depuis Outlook -->
+                <input type="hidden" id="utm_source" name="utm_source" value="CAMPAGNE OUTLOOK - RENAISSANCE B2B">
+                <input type="hidden" id="utm_campaign" name="utm_campaign" value="">
+
+                <div class="form-group">
+                    <label for="agence">Nom de l'agence immobilière *</label>
+                    <input type="text" id="agence" name="agence" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="responsable">Nom et prénom du responsable *</label>
+                    <input type="text" id="responsable" name="responsable" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="telephone">Numéro de téléphone *</label>
+                        <input type="tel" id="telephone" name="telephone" required>
+                    </div>
+                    <div class="form-group half">
+                        <label for="whatsapp">Numéro WhatsApp *</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Adresse e-mail professionnelle *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="commune">Commune d'implantation *</label>
+                    <input type="text" id="commune" name="commune" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="agrement">Numéro et informations de l'agrément *</label>
+                    <textarea id="agrement" name="agrement" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="disponibilite">Disponibilité pour un rendez-vous commercial *</label>
+                    <select id="disponibilite" name="disponibilite" required>
+                        <option value="">-- Sélectionnez une option --</option>
+                        <option value="Dès que possible">Dès que possible</option>
+                        <option value="Cette semaine">Cette semaine</option>
+                        <option value="À convenir ultérieurement">À convenir ultérieurement</option>
+                    </select>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="consentement" name="consentement" required>
+                    <label for="consentement">J'autorise AXXAM PROMO à traiter mes informations dans le cadre de ma candidature au réseau de vente RENAISSANCE. *</label>
+                </div>
+
+                <button type="submit" id="submitBtn" class="btn-submit">INTÉGRER LE RÉSEAU RENAISSANCE</button>
+            </form>
+
+            <div id="successMessage" class="success-message" style="display: none;">
+                <h3>✅ Candidature transmise avec succès</h3>
+                <p>Notre service commercial prendra contact avec vous rapidement pour finaliser votre intégration au réseau RENAISSANCE.</p>
+            </div>
+            
+            <div id="errorMessage" class="error-message" style="display: none;">
+                <p>❌ Une erreur est survenue lors de l'envoi. Veuillez réessayer.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>AXXAM PROMO</strong> - La Garantie d'un Professionnel.</p>
+            <p>Siège social : Souk El-Thenine, Béjaïa | E-mail : contact@axxampromo.com | Web : www.axxampromo.com</p>
+            <p>&copy; 2026 SARL AXXAM PROMO. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('utm_source')) {
+            document.getElementById('utm_source').value = urlParams.get('utm_source');
+        }
+        if (urlParams.has('utm_campaign')) {
+            document.getElementById('utm_campaign').value = urlParams.get('utm_campaign');
+        }
+
+        const form = document.getElementById('partenaireForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzefQQ8ys2mZqz7DSCdwWiksITOhcRGhDznw-62SBkDvG3SYF8sOxr3II8M6Trwdh_9/exec';
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'TRANSMISSION EN COURS...';
+            errorMessage.style.display = 'none';
+
+            // Collecte explicite de tous les champs en JSON
+            const payload = {
+                utm_source: document.getElementById('utm_source').value,
+                utm_campaign: document.getElementById('utm_campaign').value,
+                agence: document.getElementById('agence').value,
+                responsable: document.getElementById('responsable').value,
+                telephone: document.getElementById('telephone').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                email: document.getElementById('email').value,
+                commune: document.getElementById('commune').value,
+                agrement: document.getElementById('agrement').value,
+                disponibilite: document.getElementById('disponibilite').value
+            };
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'text/plain;charset=utf-8'
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(function() {
+                form.style.display = 'none';
+                successMessage.style.display = 'block';
+                window.scrollTo({ top: document.querySelector('.form-container').offsetTop - 20, behavior: 'smooth' });
+            })
+            .catch(function(error) {
+                console.error('Erreur:', error);
+                errorMessage.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'INTÉGRER LE RÉSEAU RENAISSANCE';
+            });
+        });
+    });
+    </script>
+</body>
+</html>
