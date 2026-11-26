@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Réseau de Vente - Résidence RENAISSANCE | AXXAM PROMO</title>
     <link rel="stylesheet" href="style.css">
-<script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=AClwzG1FnR5T-HC4_QkJCaqO_hOfEy8PfpLWgir4cv4Qsl45CBxM8XwFEO0yxKnx2WMEUMFzKTATEn2WIOGO2HyTVduRBm9YQEtwcHMGCT4KMgfJqmDBPJjgHyuGdvR4hMmrsXochISK1oZrGBqtTX5hKHkDaXBEO_ZASkAaJ3Yh1ExgU6cwjKt4Mu-Zo7gXvEUZSsB9vYnojQMw2RqtX-OSN_b2wI4SZ6e-mPRRVUhI_4ieyiRibtPZAU2NUJHrL3h-5RLEeIpAdPS2RFiaTJ39DDUReU4ukjKLwhOyHtO5V_lhRCn4R_826_70ik4h" charset="UTF-8"></script></head>
+<script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=GKYztw7ZQBM80WDYvJOBi5Kr2S456DBcNl7iV7sC9tR-nsPfCSfwEXCANiBEm7o3sTcbApYuUNxlprP26ZescwVTdxQURUQJwpclNfhaO5mI-Zcj6QbAPswKas_9R-WCREiVdtTs4Yu9SdeWvkjFBa8SIi3Pzo9_Wd5OmV6--_N0aGkPByiMhUpT_L4Tl5wdHYT0MSZSrMlsYitkgitohmB1tOUh0WV-Q616P3u7mFk0-fiTuWwwDPTGHFDM-ioCLdL_Q1ggQprtKsDLQOOoehPI92ash-X_A6kGAo9h41iE-LI5PERrHJcdVvjHks7s" charset="UTF-8"></script></head>
 <body>
     <!-- En-tête / Hero Section -->
     <header class="hero">
@@ -57,16 +57,7 @@
             <h2>Soumettre votre candidature au réseau RENAISSANCE</h2>
             <p style="margin-bottom: 25px; color: #555;">Remplissez ce formulaire pour être contacté par notre service commercial concernant la commercialisation exclusive de la Résidence RENAISSANCE.</p>
             
-            <!-- Iframe caché pour recevoir la réponse de Google sans quitter la page -->
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-
-            <!-- Envoi HTML natif (garantit la lecture des champs par Google Apps Script) -->
-            <form id="partenaireForm"
-                  action="https://script.google.com/macros/s/AKfycbzefQQ8ys2mZqz7DSCdwWiksITOhcRGhDznw-62SBkDvG3SYF8sOxr3II8M6Trwdh_9/exec"
-                  method="POST"
-                  target="hidden_iframe">
-
-                <!-- Champs cachés pour tracker l'origine depuis Outlook -->
+            <form id="partenaireForm">
                 <input type="hidden" id="utm_source" name="utm_source" value="CAMPAGNE OUTLOOK - RENAISSANCE B2B">
                 <input type="hidden" id="utm_campaign" name="utm_campaign" value="">
 
@@ -128,6 +119,10 @@
                 <h3>✅ Candidature transmise avec succès</h3>
                 <p>Notre service commercial prendra contact avec vous rapidement pour finaliser votre intégration au réseau RENAISSANCE.</p>
             </div>
+            
+            <div id="errorMessage" class="error-message" style="display: none;">
+                <p>❌ Une erreur est survenue lors de l'envoi. Veuillez réessayer.</p>
+            </div>
         </div>
     </section>
 
@@ -135,7 +130,7 @@
     <footer>
         <div class="container">
             <p><strong>AXXAM PROMO</strong> - La Garantie d'un Professionnel.</p>
-            <p>Siège social : Cité Tobal, Béjaïa | E-mail : contact@axxampromo.com | Web : www.axxampromo.com</p> | TEL: +213 0770 22 23 27
+            <p>Siège social : Cité Tobal, Béjaïa | E-mail : contact@axxampromo.com | Web : www.axxampromo.com</p> | TEL: +213 770 22 23 27 
             <p>&copy; 2026 SARL AXXAM PROMO. Tous droits réservés.</p>
         </div>
     </footer>
@@ -153,17 +148,46 @@
         const form = document.getElementById('partenaireForm');
         const submitBtn = document.getElementById('submitBtn');
         const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
 
-        form.addEventListener('submit', function() {
-            // On laisse le formulaire s'envoyer nativement vers hidden_iframe
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzefQQ8ys2mZqz7DSCdwWiksITOhcRGhDznw-62SBkDvG3SYF8sOxr3II8M6Trwdh_9/exec';
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
             submitBtn.disabled = true;
             submitBtn.textContent = 'TRANSMISSION EN COURS...';
+            errorMessage.style.display = 'none';
 
-            setTimeout(function() {
+            // Envoi via GET (paramètres dans l'URL) : méthode 100% fiable avec Google Apps Script
+            const params = new URLSearchParams({
+                utm_source: document.getElementById('utm_source').value,
+                utm_campaign: document.getElementById('utm_campaign').value,
+                agence: document.getElementById('agence').value,
+                responsable: document.getElementById('responsable').value,
+                telephone: document.getElementById('telephone').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                email: document.getElementById('email').value,
+                commune: document.getElementById('commune').value,
+                agrement: document.getElementById('agrement').value,
+                disponibilite: document.getElementById('disponibilite').value
+            });
+
+            fetch(SCRIPT_URL + '?' + params.toString(), {
+                method: 'GET',
+                mode: 'no-cors'
+            })
+            .then(function() {
                 form.style.display = 'none';
                 successMessage.style.display = 'block';
                 window.scrollTo({ top: document.querySelector('.form-container').offsetTop - 20, behavior: 'smooth' });
-            }, 1500);
+            })
+            .catch(function(error) {
+                console.error('Erreur:', error);
+                errorMessage.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'INTÉGRER LE RÉSEAU RENAISSANCE';
+            });
         });
     });
     </script>
