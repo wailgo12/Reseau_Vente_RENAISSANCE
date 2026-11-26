@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const errorMessage = document.getElementById('errorMessage');
 
     // =========== À REMPLACER PAR VOTRE URL GOOGLE SCRIPT ===========
-    const SCRIPT_URL = 'VOTRE_URL_WEB_APP_GOOGLE_ICI'; 
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyc5WoMBmHN1yIFmeqdJFT2sX2g9W0wGtJT7UKMGjErqg1cbD8TaARp9W9bLmre10ZU/exec'; 
     // ===============================================================
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        if(SCRIPT_URL === 'VOTRE_URL_WEB_APP_GOOGLE_ICI') {
+        if(SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbyc5WoMBmHN1yIFmeqdJFT2sX2g9W0wGtJT7UKMGjErqg1cbD8TaARp9W9bLmre10ZU/exec') {
             alert("Erreur de configuration : Veuillez insérer l'URL de votre script Google dans le fichier script.js.");
             return;
         }
